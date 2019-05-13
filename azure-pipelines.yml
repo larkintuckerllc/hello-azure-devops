@@ -10,6 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- script: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  displayName: 'Install nvm'
+
+- script: nvm install 10.15.3
+  displayName: 'Use nvm'
+
 - script: yarn install
   displayName: 'Install'
 
