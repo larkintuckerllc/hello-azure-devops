@@ -4,24 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+  - task: NodeTool@0
+    displayName: Node install
+    inputs:
+      versionSpec: '10.15.2'
 
-- script: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-  displayName: 'Install nvm'
+  - script: which node
 
-- script: source ~/.profile
-  displayName: 'Reload profile'
+  - script: yarn install
+    displayName: 'Install'
 
-- script: nvm install 10.15.3
-  displayName: 'Use nvm'
-
-- script: yarn install
-  displayName: 'Install'
-
-- script: yarn build 
-  displayName: 'Build'
+  - script: yarn build 
+    displayName: 'Build'
