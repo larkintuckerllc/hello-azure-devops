@@ -13,6 +13,5 @@ steps:
 - script: yarn install
   displayName: 'Install'
 
-steps:
 - script: yarn build 
   displayName: 'Build'
