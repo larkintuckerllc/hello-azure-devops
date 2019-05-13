@@ -14,6 +14,9 @@ steps:
 - script: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
   displayName: 'Install nvm'
 
+- script: source ~/.profile
+  displayName: 'Reload profile'
+
 - script: nvm install 10.15.3
   displayName: 'Use nvm'
 
